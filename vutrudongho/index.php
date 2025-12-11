@@ -9,10 +9,10 @@ require_once('lib_session.php');
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lunar Veil</title>
-  <link rel="shortcut icon" href="assets/Img/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="assets/css/home.css">
-  <link rel="stylesheet" href="assets/CSS/header.css">
-  <link rel="stylesheet" href="assets/CSS/footer.css">
+  <link rel="shortcut icon" href="/vutrudongho/vutrudongho/assets/Img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="/vutrudongho/vutrudongho/assets/css/home.css">
+  <link rel="stylesheet" href="/vutrudongho/vutrudongho/assets/CSS/header.css">
+  <link rel="stylesheet" href="/vutrudongho/vutrudongho/assets/CSS/footer.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap&amp;_cacheOverride=1679484892371"
     data-tag="font">
@@ -222,7 +222,7 @@ require_once('lib_session.php');
             minh, đồng hồ chống nước, đồng hồ đo nhịp tim và nhiều tính năng khác. Với chất lượng đáng tin cậy và giá cả
             hợp lý, đồng hồ Casio là một lựa chọn tuyệt vời cho bất kỳ ai đang tìm kiếm một chiếc đồng hồ đa năng và
             thời trang.</p>
-            <a href="product.php?brand=Casio&idBrand=BR002"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/product.php?brand=Casio&idBrand=BR002"><button>Xem thêm</button></a>
         </div>
         <img src="assets/img/hoangImg/imgs/banerCasioBaby.png" alt="" width="250px"
           style="width: 100%;margin-top: 12px;">
@@ -245,7 +245,7 @@ require_once('lib_session.php');
             là điểm nhấn đáng chú ý của Apple Watch, giúp người dùng dễ dàng điều hướng và khám phá thế giới xung quanh
             một cách thuận tiện hơn. Với chất lượng và độ tin cậy của thương hiệu Apple, Apple Watch là một sự lựa chọn
             tuyệt vời cho những ai muốn sở hữu một chiếc đồng hồ thông minh đẳng cấp và hiện đại.</p>
-            <a href="product.php?brand=Apple&idBrand=BR005"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/product.php?brand=Apple&idBrand=BR005"><button>Xem thêm</button></a>
         </div>
         <img src="assets/img/hoangImg/imgs/apple_baner.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
         <img src="assets/img/hoangImg/imgs/apple_banner3.jpg" alt="" style="width: 100%;">
@@ -266,7 +266,7 @@ require_once('lib_session.php');
             cho phép sử dụng năng lượng ánh sáng để làm năng lượng cho đồng hồ, giúp tiết kiệm pin và bảo vệ môi trường.
             Với chất lượng và độ tin cậy của thương hiệu Citizen, đồng hồ Citizen là sự lựa chọn hoàn hảo cho những ai
             đang tìm kiếm một chiếc đồng hồ đa năng và bền vững.</p>
-            <a href="product.php?brand=Citizen&idBrand=BR003"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/product.php?brand=Citizen&idBrand=BR003"><button>Xem thêm</button></a>
         </div>
         <img src="assets/img/hoangImg/imgs/citizen_banner1.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
         <img src="assets/img/hoangImg/imgs/citizen_banner2.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
@@ -289,7 +289,7 @@ require_once('lib_session.php');
             tự động, cho phép đồng hồ sử dụng chính chuyển động của cổ tay để làm năng lượng cho đồng hồ, giúp tiết kiệm
             năng lượng và kéo dài tuổi thọ của pin. Với chất lượng và độ tin cậy của thương hiệu Orient, đồng hồ Orient
             là sự lựa chọn tuyệt vời cho những ai đang tìm kiếm một chiếc đồng hồ chất lượng cao và đáng tin cậy.</p>
-            <a href="product.php?brand=Orient&idBrand=BR004"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/product.php?brand=Orient&idBrand=BR004"><button>Xem thêm</button></a>
         </div>
         <img src="assets/img/hoangImg/imgs/orient_banner1.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
         <img src="assets/img/hoangImg/imgs/orient_banner2.jpg" alt="" style="width: 100%;">
@@ -311,7 +311,7 @@ require_once('lib_session.php');
             solar, cho phép đồng hồ sử dụng chính chuyển động của cổ tay hoặc ánh sáng để làm năng lượng cho đồng hồ,
             giúp tiết kiệm năng lượng và kéo dài tuổi thọ của pin. Với chất lượng và độ tin cậy của thương hiệu Seiko,
             đồng hồ Seiko là sự lựa chọn hoàn hảo cho những ai đang tìm kiếm một chiếc đồng hồ đa năng và bền vững.</p>
-            <a href="product.php?brand=Seiko&idBrand=BR001"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/product.php?brand=Seiko&idBrand=BR001"><button>Xem thêm</button></a>
         </div>
         <img src="assets/img/hoangImg/imgs/seiko_banner1.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
         <img src="assets/img/hoangImg/imgs/seiko_banner2.jpg" alt="" style="width: 100%;margin-bottom: 14px;">

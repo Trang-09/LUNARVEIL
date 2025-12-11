@@ -1,17 +1,10 @@
 RewriteEngine On
 RewriteBase /vutrudongho/vutrudongho/
-# 1) Trang chi tiết sản phẩm
-RewriteRule ^product/([A-Za-z0-9]+)/?$ detail_product.php?ProductID=$1 [L]
 
-# 2) Trang About
-RewriteRule ^about/?$ about_us.php [L]
+# Nếu file thật hoặc thư mục thật → không rewrite
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# 3) Trang Contact
-RewriteRule ^contact/?$ contact.php [L]
-
-# 4) Trang Product list
-RewriteRule ^products/?$ product.php [L]
-
-# 5) Trang chủ
-RewriteRule ^home/?$ index.php [L]
-RewriteRule ^$ index.php [L]
+# URL dạng /product/PR000001/ten-san-pham
+RewriteRule ^product/([A-Za-z0-9]+)/([A-Za-z0-9-]+)/?$ detail_product.php?ProductID=$1 [L,QSA]

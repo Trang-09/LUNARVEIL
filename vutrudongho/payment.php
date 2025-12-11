@@ -94,9 +94,7 @@
                             echo (date_format($date1,"d")); ?> 
                         thg <?php echo date("m") ?>
                     </div>
-                    <div class="icon_clicked">
-                        <span class="material-symbols-outlined">check_small</span>
-                    </div>
+                    
                 </div>
 
                 <!-- Giao hàng hỏa tốc -->
@@ -125,6 +123,14 @@
                         </div>
                         <div class="payment_name">Thanh toán qua PayPal</div>
                     </div>
+                    <!-- Thanh toán qua VNpay -->
+                    <div class="payment_card" data-id="PA03">
+                        <div class="payment_icon">
+                            <img src="assets/Img/icons/v-vnpay_.png" alt="VNPAY" style="width:40px; height:auto;">
+                        </div>
+                        <div class="payment_name">Thanh toán qua VNPAY</div>
+                    </div>
+
                 </div>
             </div>
 
@@ -142,7 +148,7 @@
             </div>
 
             <!-- Form thanh toán -->
-            <form action="modules/place_order.php" method="post">
+            <form id="paymentForm" action="#" method="post">
                 <!-- PayPal SDK -->
                 <script src="https://www.paypal.com/sdk/js?client-id=AfH7LU1YDV8qQHfYCLc7802uj-9D810FUWzNPc6oJdxzalC6Ub4i1gF-anOPTcvHzBDK20-8eOvfEYbn&currency=USD"></script>
 
@@ -151,33 +157,29 @@
                     <input type="hidden" id="ShippingFee"   name="ShippingFee"   value="">
                     <input type="hidden" id="OrderDiscount" name="OrderDiscount" value="0">
                     <input type="hidden" id="Address"       name="Address"       value="<?php echo $user['HouseRoadAddress'] ?>#<?php echo $user['Ward'] ?>#<?php echo $user['District'] ?>#<?php echo $user['Province'] ?>">
-                    <input type="hidden" id="PaymentID"     name="PaymentID"     value="PA01">
+                    <input type="hidden" id="PaymentID"     name="PaymentID"     value="PA02"> <!-- Default PayPal -->
                     <input type="hidden" id="VoucherID"     name="VoucherID"     value="NULL">
                     <input type="hidden" id="Total"         name="Total"         value="">
 
-                    <!-- Nút Thanh Toán -->
-                    <button type="submit" id="paypalPayBtn" class="payment_button">Thanh Toán</button>
+                    <!-- Nút thanh toán -->
+                    <button type="button" id="payBtn" class="payment_button">Thanh Toán</button>
 
-                    <!-- Container PayPal ẩn đi -->
-                    <div id="paypal-button-container" style="display:none;"></div>
+                    <!-- PayPal container (ẩn) -->
+                    <div id="paypal-button-container" style="display:none; margin-top: 20px;"></div>
                 </div>
-
                 <script>
-                    // Gắn SDK PayPal
+                    /* ============ PAYPAL BUTTON ============ */
                     paypal.Buttons({
                         createOrder: function(data, actions) {
-                            const total = document.getElementById('Total').value || '10.00'; // giá trị tạm thời
+                            const total = document.getElementById('Total').value || '10.00';
                             return actions.order.create({
                                 purchase_units: [{
-                                    amount: {
-                                        value: total
-                                    }
+                                    amount: { value: total }
                                 }]
                             });
                         },
                         onApprove: function(data, actions) {
                             return actions.order.capture().then(function(details) {
-                                // Thanh toán thành công → chuyển trang
                                 window.location.href = "checkout.php";
                             });
                         },
@@ -186,17 +188,76 @@
                         }
                     }).render('#paypal-button-container');
 
-                    // Khi nhấn nút "Thanh Toán", hiển thị PayPal
-                    document.getElementById('paypalPayBtn').addEventListener('click', function(e) {
-                        e.preventDefault();
-                        document.getElementById('paypalPayBtn').style.display = 'none';
-                        document.getElementById('paypal-button-container').style.display = 'block';
+
+                    /* ============ SỰ KIỆN CLICK NÚT THANH TOÁN ============ */
+                    document.addEventListener("DOMContentLoaded", () => {
+
+                        const payBtn = document.getElementById("payBtn");
+                        const paymentIDEl = document.getElementById("PaymentID");
+                        const totalEl = document.getElementById("Total");
+
+                        if (!payBtn || !paymentIDEl || !totalEl) {
+                            console.error("Không tìm thấy element cần thiết.");
+                            return;
+                        }
+
+                        payBtn.addEventListener("click", function () {
+
+                            const paymentID = paymentIDEl.value;
+
+                            let total = totalEl.value;
+                            total = parseFloat(total.toString().replace(/,/g, "")) || 0;
+
+                            /* PAYPAL */
+                            if (paymentID === "PA02") {
+                                payBtn.style.display = "none";
+                                document.getElementById("paypal-button-container").style.display = "block";
+                                return;
+                            }
+
+                            /* VNPAY */
+                            if (paymentID === "PA03") {
+                                // total đang là USD → đổi sang VND
+                                const usdToVndRate = 25000;   // hoặc 24,500 / 25,000 tùy bạn
+                                const amountVND = Math.round(total * usdToVndRate);
+
+                                window.location.href = "vnpay_create_payment.php?amount=" + amountVND;
+                                return;
+                            }
+
+                            alert("Vui lòng chọn phương thức thanh toán.");
+                        });
+
+                    });
+
+                    /* ============ CHỌN PHƯƠNG THỨC THANH TOÁN ============ */
+                    const paymentCards = document.querySelectorAll('.payment_card');
+
+                    paymentCards.forEach(card => {
+                        card.addEventListener('click', () => {
+                            // Xóa class active
+                            paymentCards.forEach(c => c.classList.remove('card_active'));
+                            card.classList.add('card_active');
+
+                            // Gán PaymentID
+                            document.getElementById("PaymentID").value = card.dataset.id;
+
+                            /* Đổi text nút */
+                            if (card.dataset.id === "PA03") {
+                                document.getElementById("payBtn").innerText = "Thanh toán VNPay";
+                            } else {
+                                document.getElementById("payBtn").innerText = "Thanh toán PayPal";
+                            }
+
+                            // Reset UI PayPal
+                            document.getElementById("paypal-button-container").style.display = "none";
+                            document.getElementById("payBtn").style.display = "block";
+                        });
                     });
                 </script>
-
             </form>
 
-            
+             
         </div>
         <div class="product_list_container">
             <div class="product_list_header">

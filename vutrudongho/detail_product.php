@@ -4,8 +4,27 @@ include 'modules/get_product_by_id.php';
 include 'modules/cartFunction.php';
 include 'lib_session.php';
 
+function slugify($text) {
+    $text = trim($text);
+
+    // chuyển thành chữ thường
+    $text = mb_strtolower($text, 'UTF-8');
+
+    // bỏ dấu tiếng Việt
+    $text = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $text);
+
+    // thay ký tự không phải chữ hoặc số thành dấu gạch ngang
+    $text = preg_replace('/[^a-z0-9]+/i', '-', $text);
+
+    // bỏ dấu - dư ở đầu và cuối
+    $text = trim($text, '-');
+
+    return $text;
+}
+
 if (isset($_GET['ProductID'])) {
     $product = get_product_by_id($_GET['ProductID']);
+    $productSlug = slugify($product['ProductName']);
     if (isset($product)) {
 
         // Lấy stock trước khi render <head> để dùng trong schema
@@ -18,10 +37,11 @@ if (isset($_GET['ProductID'])) {
         $rootPath = rtrim($protocol . $host . dirname($_SERVER['SCRIPT_NAME']), '/');
 
         // Tạo các URL dùng trong OG / Schema
-        $productUrl = $rootPath . '/detail_product.php?ProductID=' . urlencode($product['ProductID']);
-        $imageUrl = $rootPath . '/assets/Img/productImg/' . rawurlencode($product['ProductImg']);
-        $homeUrl = $rootPath . '/index.php';
-        $productsPageUrl = $rootPath . '/product.php';
+        $productUrl = $rootPath . '/vutrudongho/vutrudongho/product/' . $product['ProductID'] . '/' . $productSlug;
+
+        $imageUrl = $rootPath . '/vutrudongho/vutrudongho/assets/Img/productImg/' . rawurlencode($product['ProductImg']);
+        $homeUrl = $rootPath . '/vutrudongho/vutrudongho/index.php';
+        $productsPageUrl = $rootPath . '/vutrudongho/vutrudongho/product.php';
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -31,11 +51,11 @@ if (isset($_GET['ProductID'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/CSS/detail_product.css">
-    <link rel="stylesheet" href="assets/CSS/header.css">
-    <link rel="stylesheet" href="assets/CSS/footer.css">
+    <link rel="stylesheet" href="/vutrudongho/vutrudongho/assets/CSS/detail_product.css">
+    <link rel="stylesheet" href="/vutrudongho/vutrudongho/assets/CSS/header.css">
+    <link rel="stylesheet" href="/vutrudongho/vutrudongho/assets/CSS/footer.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="shortcut icon" href="assets/Img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/vutrudongho/vutrudongho/assets/Img/logo.png" type="image/x-icon">
 
     <!-- SEO TITLE & DESCRIPTION -->
     <title><?= htmlspecialchars($product['ProductName']) ?> | Lunar Veil</title>
@@ -147,7 +167,7 @@ if (isset($_GET['ProductID'])) {
     <div class="detail_container">
         <div class="detail_product">
             <div class="product_img">
-                <img src="assets/Img/productImg/<?php echo htmlspecialchars($product['ProductImg']); ?>"
+                <img src="/vutrudongho/vutrudongho/assets/Img/productImg/<?php echo htmlspecialchars($product['ProductImg']); ?>"
                      alt="<?php echo htmlspecialchars($product['ProductName']); ?>">
             </div>
             <div class="product_name">
@@ -281,7 +301,7 @@ if (isset($_GET['ProductID'])) {
                 let id = this.getAttribute("data-id");
 
                 // Gắn thông tin sản phẩm lên popup
-                popupImg.src = "assets/Img/productImg/<?php echo rawurlencode($product['ProductImg']); ?>";
+                popupImg.src = "/vutrudongho/vutrudongho/assets/Img/productImg/<?php echo rawurlencode($product['ProductImg']); ?>";
                 popupName.innerText = "<?php echo addslashes($product['ProductName']); ?>";
                 popupPrice.innerText = "Giá: <?php echo number_format($product['PriceToSell']); ?> $";
 

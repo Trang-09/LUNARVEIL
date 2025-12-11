@@ -1,5 +1,14 @@
 <div id="main">
     <?php
+
+    function slugify($text) {
+    $text = trim($text);
+    $text = mb_strtolower($text, 'UTF-8');
+    $text = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $text);
+    $text = preg_replace('/[^a-z0-9]+/i', '-', $text);
+    return trim($text, '-');
+    }
+
     include 'connect.php';
     include("sidebar.php");
     $item_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 9;
@@ -24,9 +33,12 @@
                 <div class="product-top">
                     <class="product-thumb">
                         <img src="./assets/Img/productImg/<?php echo $value['ProductImg'] ?>"></img>
+                        <?php $slug = slugify($value['ProductName']); ?>
+
                         <button class="info-detail"
-                            onclick="location.href='detail_product.php?ProductID=<?php echo $value['ProductID'] ?>'">Xem
-                            Thêm</button>
+                                onclick="location.href='/vutrudongho/vutrudongho/product/<?php echo $value['ProductID'] . '/' . $slug; ?>'">
+                            Xem Thêm
+                        </button>
                     </class="product-thumb">
                 </div>
                 <p>
