@@ -17,7 +17,7 @@
 
             // Lấy dữ liệu từ file get-data.php
             $.ajax({
-                url: 'get-max-product-price.php',
+                url: '/vutrudongho/vutrudongho/mainproduct/get-max-product-price.php',
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {

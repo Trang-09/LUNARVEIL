@@ -51,7 +51,7 @@
                 <div class="card">
                     <div class="product-top">
                         <class="product-thumb">
-                            <img src="./assets/Img/productImg/<?php echo $value['ProductImg'] ?>"></img>
+                            <img src="/vutrudongho/vutrudongho/assets/Img/productImg/<?php echo $value['ProductImg'] ?>"></img>
                             <?php $slug = slugify($value['ProductName']); ?>
 
                             <button class="info-detail"
@@ -130,7 +130,7 @@
     <?php } else {
     ?>
         <div class="alert-not-found">
-            <img src="./assets/Img/icons/icons8-nothing-found-100.png" alt="Not found" class="ic-not-found">
+            <img src="/vutrudongho/vutrudongho/assets/Img/icons/icons8-nothing-found-100.png" alt="Not found" class="ic-not-found">
             <p class="not-found">Không tìm thấy sản phẩm</p>
         </div> <?php
             }
@@ -172,7 +172,7 @@
             };
 
             document.getElementById("popupName").innerText = chosenProduct.name;
-            document.getElementById("popupImg").src = "./assets/Img/productImg/" + chosenProduct.img;
+            document.getElementById("popupImg").src = "/vutrudongho/vutrudongho/assets/Img/productImg/" + chosenProduct.img;
             document.getElementById("qtyInput").value = 1;
 
             document.getElementById("popupCart").style.display = "flex";

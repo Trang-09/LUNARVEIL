@@ -27,11 +27,22 @@ require_once('lib_session.php');
 </head>
 
 <body>
+  <?php
+    if (isset($_GET['brand'])) {
+        echo "<script>
+                window.onload = function() {
+                    const el = document.getElementById('" . $_GET['brand'] . "BrandInfo');
+                    if (el) el.scrollIntoView({behavior: 'smooth'});
+                }
+              </script>";
+    }
+  ?>
+
   <!--Start Nut di chuyen-->
   <div id="btnLenXuong" style="position: fixed;z-index: 999;display: flex;flex-direction: column;top:80%;right: 14px;">
-    <img id="btn-top" src="assets/img/hoangImg/icons/icons8-slide-up-32.png" alt=""
+    <img id="btn-top" src="/vutrudongho/vutrudongho/assets/img/hoangImg/icons/icons8-slide-up-32.png" alt=""
       style="cursor: pointer;margin-bottom: 10px;">
-    <img id="scroll-to-bottom" onclick="scrollToBottom()" src="assets/img/hoangImg/icons/icons8-down-button-32.png"
+    <img id="scroll-to-bottom" onclick="scrollToBottom()" src="/vutrudongho/vutrudongho/assets/img/hoangImg/icons/icons8-down-button-32.png"
       alt="" style="cursor: pointer;">
   </div>
 
@@ -61,19 +72,19 @@ require_once('lib_session.php');
 
     <div id="ỉntroduction" style="display: flex;    background-color: #1cabb0;
     height: 100px;justify-content: center;">
-      <img id="vtdd-logotext" src="assets/img/hoangImg/logo/logo_text_ngang.png" alt="">
+      <img id="vtdd-logotext" src="/vutrudongho/vutrudongho/assets/img/hoangImg/logo/logo_text_ngang.png" alt="">
     </div>
     <!--Begin: Slider-->
     <div class="slider">
       <div class="slide-wrapper">
         <div class="slide">
-          <img class="slide-img" src="assets/img/hoangImg/slider/slide1.png" alt="Slide1" />
+          <img class="slide-img" src="/vutrudongho/vutrudongho/assets/img/hoangImg/slider/slide1.png" alt="Slide1" />
         </div>
         <div class="slide">
-          <img class="slide-img" src="assets/img/hoangImg/slider/slide2.png" alt="Slide2" />
+          <img class="slide-img" src="/vutrudongho/vutrudongho/assets/img/hoangImg/slider/slide2.png" alt="Slide2" />
         </div>
         <div class="slide">
-          <img class="slide-img" src="assets/img/hoangImg/slider/slide3.png" alt="Slide3" />
+          <img class="slide-img" src="/vutrudongho/vutrudongho/assets/img/hoangImg/slider/slide3.png" alt="Slide3" />
         </div>
       </div>
     </div>
@@ -90,12 +101,12 @@ require_once('lib_session.php');
             <div
               style="cursor: pointer;display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 10;">
               <a id="theAtrongHoverMauTim" class="btn-11 mediumtitlehome"
-                onclick="window.location.href='#casioBrandInfo'">Casio</a>
+                onclick="window.location.href='/vutrudongho/vutrudongho/brand/casio'">Casio</a>
             </div>
             <div
               style="display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 9;background-color: #a7eff1;">
             </div>
-            <img src="assets/Img/productImg/118_AEQ-110W-3AVDF-699x699.png" style="opacity: 0.9;" alt=""
+            <img src="/vutrudongho/vutrudongho/assets/Img/productImg/118_AEQ-110W-3AVDF-699x699.png" style="opacity: 0.9;" alt=""
               width="180px">
           </div>
         </div>
@@ -110,12 +121,12 @@ require_once('lib_session.php');
               <div
                 style="cursor: pointer;display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 10;">
                 <a id="theAtrongHoverMauTim2" class="btn-11 mediumtitlehome"
-                  onclick="window.location.href='#appleBrandInfo'">Apple</a>
+                  onclick="window.location.href='/vutrudongho/vutrudongho/brand/apple'">Apple</a>
               </div>
               <div
                 style="display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 9;background-color: #a7eff1;">
               </div>
-              <img src="assets/Img/productImg/0011842_midnight_550.png" style="opacity: 0.9;" alt="" width="180px">
+              <img src="/vutrudongho/vutrudongho/assets/Img/productImg/0011842_midnight_550.png" style="opacity: 0.9;" alt="" width="180px">
             </div>
           </div>
         </div>
@@ -128,12 +139,12 @@ require_once('lib_session.php');
             <div
               style="cursor: pointer;display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 10;">
               <a id="theAtrongHoverMauTim3" class="btn-11 mediumtitlehome"
-                onclick="window.location.href='#citizenBrandInfo'">Citizen</a>
+                onclick="window.location.href='/vutrudongho/vutrudongho/brand/citizen'">Citizen</a>
             </div>
             <div
               style="display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 9;background-color: #a7eff1;">
             </div>
-            <img src="assets/Img/productImg/AN8195-58E-699x699.png" style="opacity: 0.9;" alt="" width="180px">
+            <img src="/vutrudongho/vutrudongho/assets/Img/productImg/AN8195-58E-699x699.png" style="opacity: 0.9;" alt="" width="180px">
           </div>
         </div>
 
@@ -146,12 +157,12 @@ require_once('lib_session.php');
             <div
               style="cursor: pointer;display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 10;">
               <a id="theAtrongHoverMauTim4" class="btn-11 mediumtitlehome"
-                onclick="window.location.href='#orientBrandInfo'">Orient</a>
+                onclick="window.location.href='/vutrudongho/vutrudongho/brand/orient'">Orient</a>
             </div>
             <div
               style="display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 9;background-color: #a7eff1;">
             </div>
-            <img src="assets/Img/productImg/FAC08003A0-1-699x699.png" style="opacity: 0.9;" s alt="" width="180px">
+            <img src="/vutrudongho/vutrudongho/assets/Img/productImg/FAC08003A0-1-699x699.png" style="opacity: 0.9;" s alt="" width="180px">
           </div>
         </div>
 
@@ -164,12 +175,12 @@ require_once('lib_session.php');
             <div
               style="cursor: pointer;display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 10;">
               <a id="theAtrongHoverMauTim5" class="btn-11 mediumtitlehome"
-                onclick="window.location.href='#seikoBrandInfo'">Seiko</a>
+                onclick="window.location.href='/vutrudongho/vutrudongho/brand/seiko'">Seiko</a>
             </div>
             <div
               style="display: flex;width: 180px;height: 28px;position: absolute;top:50%;transform: translateY(-50%);z-index: 9;background-color: #a7eff1;">
             </div>
-            <img src="assets/Img/productImg/SRPG41K1.png" style="opacity: 0.9;" alt="" width="180px">
+            <img src="/vutrudongho/vutrudongho/assets/Img/productImg/SRPG41K1.png" style="opacity: 0.9;" alt="" width="180px">
           </div>
         </div>
       </div>
@@ -179,16 +190,16 @@ require_once('lib_session.php');
     <p style="text-align:center ; font-size: 30px;">CÁC MẶT HÀNG ĐANG HOT</p>
     </div>
     <a id="imageLink" href="#">
-        <img id="bannerImage" src="assets/img/hoangImg/imgs/banerCasioBaby.png" alt="" width="250px" style="width: 100%;margin-top: 12px;">
+        <img id="bannerImage" src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/banerCasioBaby.png" alt="" width="250px" style="width: 100%;margin-top: 12px;">
     </a>
     </div>
     <script>
     const images = [
-        { src: 'assets/img/hoangImg/imgs/banerCasioBaby.png', href: 'index.php#casioBrandInfo' },
-        { src: 'assets/img/hoangImg/imgs/apple_baner.jpg', href: 'index.php#appleBrandInfo' },
-        { src: 'assets/img/hoangImg/imgs/citizen_banner1.jpg', href: 'index.php#citizenBrandInfo' },
-        { src: 'assets/img/hoangImg/imgs/orient_banner2.jpg', href: 'index.php#orientBrandInfo' },
-        { src: 'assets/img/hoangImg/imgs/seiko_banner2.jpg', href: 'index.php#seikoBrandInfo' },
+        { src: '/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/banerCasioBaby.png', href: '/vutrudongho/vutrudongho/brand/casio' },
+        { src: '/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/apple_baner.jpg', href: '/vutrudongho/vutrudongho/brand/apple' },
+        { src: '/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/citizen_banner1.jpg', href: '/vutrudongho/vutrudongho/brand/citizen' },
+        { src: '/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/orient_banner2.jpg', href: '/vutrudongho/vutrudongho/brand/orient' },
+        { src: '/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/seiko_banner2.jpg', href: '/vutrudongho/vutrudongho/brand/seiko' },
     ];
     
     let currentIndex = 0
@@ -212,7 +223,7 @@ require_once('lib_session.php');
       <div id="productBC">
         <div class="clockBrandContent">
           <div class="col30">
-            <img src="assets/img/hoangImg/imgs/118_AEQ-110W-3AVDF-699x699.png" alt="" width="250px" alt="">
+            <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/118_AEQ-110W-3AVDF-699x699.png" alt="" width="250px" alt="">
           </div>
           <p style="text-align: justify;display: flex;align-items: center;" class="col70 smalltitlehome">Đồng hồ Casio
             là một trong những thương hiệu đồng hồ nổi tiếng và được yêu thích trên toàn
@@ -222,11 +233,11 @@ require_once('lib_session.php');
             minh, đồng hồ chống nước, đồng hồ đo nhịp tim và nhiều tính năng khác. Với chất lượng đáng tin cậy và giá cả
             hợp lý, đồng hồ Casio là một lựa chọn tuyệt vời cho bất kỳ ai đang tìm kiếm một chiếc đồng hồ đa năng và
             thời trang.</p>
-            <a href="/vutrudongho/vutrudongho/product.php?brand=Casio&idBrand=BR002"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/brand/casio/BR002"><button>Xem thêm</button></a>
         </div>
-        <img src="assets/img/hoangImg/imgs/banerCasioBaby.png" alt="" width="250px"
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/banerCasioBaby.png" alt="" width="250px"
           style="width: 100%;margin-top: 12px;">
-        <img src="assets/img/hoangImg/imgs/banerCasioGsock.png" alt="" width="250px"
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/banerCasioGsock.png" alt="" width="250px"
           style="width: 100%;margin-top: 14px;">
 
         <hr id="appleBrandInfo" style="margin-top: 50px;margin-bottom: 50px;">
@@ -234,7 +245,7 @@ require_once('lib_session.php');
         <p class="bigtitlehome" style="text-align:center ;">APPLE</p>
         <div class="clockBrandContent">
           <div class="col30">
-            <img src="assets/Img/productImg/0011842_midnight_550.png" alt="" width="250px" alt="">
+            <img src="/vutrudongho/vutrudongho/assets/Img/productImg/0011842_midnight_550.png" alt="" width="250px" alt="">
           </div>
           <p style="text-align: justify;display: flex;align-items: center;" class="col70 smalltitlehome">Apple Watch là
             một trong những sản phẩm đồng hồ thông minh được yêu thích nhất hiện nay. Với thiết kế đẹp mắt, tính năng
@@ -245,17 +256,17 @@ require_once('lib_session.php');
             là điểm nhấn đáng chú ý của Apple Watch, giúp người dùng dễ dàng điều hướng và khám phá thế giới xung quanh
             một cách thuận tiện hơn. Với chất lượng và độ tin cậy của thương hiệu Apple, Apple Watch là một sự lựa chọn
             tuyệt vời cho những ai muốn sở hữu một chiếc đồng hồ thông minh đẳng cấp và hiện đại.</p>
-            <a href="/vutrudongho/vutrudongho/product.php?brand=Apple&idBrand=BR005"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/brand/apple/BR005"><button>Xem thêm</button></a>
         </div>
-        <img src="assets/img/hoangImg/imgs/apple_baner.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
-        <img src="assets/img/hoangImg/imgs/apple_banner3.jpg" alt="" style="width: 100%;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/apple_baner.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/apple_banner3.jpg" alt="" style="width: 100%;">
 
         <hr id="citizenBrandInfo" style="margin-top: 50px;margin-bottom: 50px;">
 
         <p class="bigtitlehome" style="text-align:center ;">CITIZEN</p>
         <div class="clockBrandContent">
           <div class="col30">
-            <img src="assets/img/hoangImg/imgs/AN8195-58E-699x699.png" alt="" width="250px" alt="">
+            <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/AN8195-58E-699x699.png" alt="" width="250px" alt="">
           </div>
           <p style="text-align: justify;display: flex;align-items: center;" class="col70 smalltitlehome">Đồng hồ Citizen
             là một trong những thương hiệu đồng hồ nổi tiếng và được yêu thích trên toàn thế giới. Với hơn 100 năm kinh
@@ -266,18 +277,18 @@ require_once('lib_session.php');
             cho phép sử dụng năng lượng ánh sáng để làm năng lượng cho đồng hồ, giúp tiết kiệm pin và bảo vệ môi trường.
             Với chất lượng và độ tin cậy của thương hiệu Citizen, đồng hồ Citizen là sự lựa chọn hoàn hảo cho những ai
             đang tìm kiếm một chiếc đồng hồ đa năng và bền vững.</p>
-            <a href="/vutrudongho/vutrudongho/product.php?brand=Citizen&idBrand=BR003"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/brand/citizen/BR003"><button>Xem thêm</button></a>
         </div>
-        <img src="assets/img/hoangImg/imgs/citizen_banner1.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
-        <img src="assets/img/hoangImg/imgs/citizen_banner2.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
-        <img src="assets/img/hoangImg/imgs/citizen_banner4.jpg" alt="" style="width: 100%;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/citizen_banner1.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/citizen_banner2.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/citizen_banner4.jpg" alt="" style="width: 100%;">
 
         <hr id="orientBrandInfo" style="margin-top: 50px;margin-bottom: 50px;">
 
         <p class="bigtitlehome" style="text-align:center ;">ORIENT</p>
         <div class="clockBrandContent">
           <div class="col30">
-            <img src="assets/img/hoangImg/imgs/FAC08003A0-1-699x699.png" alt="" width="250px" alt="">
+            <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/FAC08003A0-1-699x699.png" alt="" width="250px" alt="">
           </div>
           <p style="text-align: justify;display: flex;align-items: center;" class="col70 smalltitlehome">Đồng hồ Orient
             là một trong những thương hiệu đồng hồ nổi tiếng và được đánh giá cao trong ngành công nghiệp đồng hồ. Với
@@ -289,17 +300,17 @@ require_once('lib_session.php');
             tự động, cho phép đồng hồ sử dụng chính chuyển động của cổ tay để làm năng lượng cho đồng hồ, giúp tiết kiệm
             năng lượng và kéo dài tuổi thọ của pin. Với chất lượng và độ tin cậy của thương hiệu Orient, đồng hồ Orient
             là sự lựa chọn tuyệt vời cho những ai đang tìm kiếm một chiếc đồng hồ chất lượng cao và đáng tin cậy.</p>
-            <a href="/vutrudongho/vutrudongho/product.php?brand=Orient&idBrand=BR004"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/brand/orient/BR004"><button>Xem thêm</button></a>
         </div>
-        <img src="assets/img/hoangImg/imgs/orient_banner1.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
-        <img src="assets/img/hoangImg/imgs/orient_banner2.jpg" alt="" style="width: 100%;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/orient_banner1.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/orient_banner2.jpg" alt="" style="width: 100%;">
 
         <hr id="seikoBrandInfo" style="margin-top: 50px;margin-bottom: 50px;">
 
         <p class="bigtitlehome" style="text-align:center ;">SEIKO</p>
         <div class="clockBrandContent">
           <div class="col30">
-            <img src="assets/img/hoangImg/imgs/SRPG41K1.png" alt="" width="250px" alt="">
+            <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/SRPG41K1.png" alt="" width="250px" alt="">
           </div>
           <p style="text-align: justify;display: flex;align-items: center;" class="col70 smalltitlehome">Đồng hồ Seiko
             là một trong những thương hiệu đồng hồ nổi tiếng và được yêu thích trên toàn thế giới. Với hơn 130 năm kinh
@@ -311,11 +322,11 @@ require_once('lib_session.php');
             solar, cho phép đồng hồ sử dụng chính chuyển động của cổ tay hoặc ánh sáng để làm năng lượng cho đồng hồ,
             giúp tiết kiệm năng lượng và kéo dài tuổi thọ của pin. Với chất lượng và độ tin cậy của thương hiệu Seiko,
             đồng hồ Seiko là sự lựa chọn hoàn hảo cho những ai đang tìm kiếm một chiếc đồng hồ đa năng và bền vững.</p>
-            <a href="/vutrudongho/vutrudongho/product.php?brand=Seiko&idBrand=BR001"><button>Xem thêm</button></a>
+            <a href="/vutrudongho/vutrudongho/brand/seiko/BR001"><button>Xem thêm</button></a>
         </div>
-        <img src="assets/img/hoangImg/imgs/seiko_banner1.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
-        <img src="assets/img/hoangImg/imgs/seiko_banner2.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
-        <img src="assets/img/hoangImg/imgs/seiko_banner3.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/seiko_banner1.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/seiko_banner2.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
+        <img src="/vutrudongho/vutrudongho/assets/img/hoangImg/imgs/seiko_banner3.jpg" alt="" style="width: 100%;margin-bottom: 14px;">
 <?php
 //Hàm lọc các người truy cập
 function updateOnlineUsers($conn) {

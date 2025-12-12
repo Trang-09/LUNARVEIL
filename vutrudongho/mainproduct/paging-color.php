@@ -32,7 +32,7 @@
             <div class="card">
                 <div class="product-top">
                     <class="product-thumb">
-                        <img src="./assets/Img/productImg/<?php echo $value['ProductImg'] ?>"></img>
+                        <img src="/vutrudongho/vutrudongho/assets/Img/productImg/<?php echo $value['ProductImg'] ?>"></img>
                         <?php $slug = slugify($value['ProductName']); ?>
 
                         <button class="info-detail"
@@ -141,7 +141,7 @@
             };
 
             document.getElementById("popupName").innerText = chosenProduct.name;
-            document.getElementById("popupImg").src = "./assets/Img/productImg/" + chosenProduct.img;
+            document.getElementById("popupImg").src = "/vutrudongho/vutrudongho/assets/Img/productImg/" + chosenProduct.img;
             document.getElementById("qtyInput").value = 1;
 
             document.getElementById("popupCart").style.display = "flex";
